@@ -22,6 +22,12 @@ import cancel from "../assets/cancel.svg";
 import cosmosdb from "../assets/cosmosdb.svg";
 import warning from "../assets/warning.svg";
 import greencheck from "../assets/checkgreen.svg";
+import versatile from "../assets/versatile.svg";
+import appServiceEasyToUse from "../assets/appServiceEasyToUse.svg";
+import scalable from "../assets/scalable.svg";
+import serverless from "../assets/serverless.svg";
+import functionsEasyToUse from "../assets/functionsEasyToUse.svg";
+import cosmosEasyToUse from "../assets/cosmosEasyToUse.svg";
 
 import masterdetailscreenshot from "../assets/masterdetailscreenshot.svg";
 import listscreenshot from "../assets/listscreenshot.svg";
@@ -37,7 +43,13 @@ const SVG_MAPPINGS = {
   [WIZARD_CONTENT_INTERNAL_NAMES.APP_SERVICE]: appservice,
   [WIZARD_CONTENT_INTERNAL_NAMES.AZURE_FUNCTIONS]: azurefunctions,
   [WIZARD_CONTENT_INTERNAL_NAMES.AZURE]: azure,
-  [WIZARD_CONTENT_INTERNAL_NAMES.COSMOS_DB]: cosmosdb
+  [WIZARD_CONTENT_INTERNAL_NAMES.COSMOS_DB]: cosmosdb,
+  [WIZARD_CONTENT_INTERNAL_NAMES.VERSATILE]: versatile,
+  [WIZARD_CONTENT_INTERNAL_NAMES.APP_SERVICE_EASY_TO_USE]: appServiceEasyToUse,
+  [WIZARD_CONTENT_INTERNAL_NAMES.SCALABLE]: scalable,
+  [WIZARD_CONTENT_INTERNAL_NAMES.SERVERLESS]: serverless,
+  [WIZARD_CONTENT_INTERNAL_NAMES.FUNCTIONS_EASY_TO_USE]: functionsEasyToUse,
+  [WIZARD_CONTENT_INTERNAL_NAMES.COSMOS_EASY_TO_USE]: cosmosEasyToUse
 };
 
 const SVG_REACTCOMPONENT_MAPPINGS = {

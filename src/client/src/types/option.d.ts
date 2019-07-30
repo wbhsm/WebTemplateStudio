@@ -1,5 +1,23 @@
 import { FormattedMessage as FM } from "react-intl";
 
+export interface IExploreButton {
+  text: FM.MessageDescriptor;
+  linkUrl: string;
+}
+
+export interface IInfoBox {
+  svgUrl?: string;
+  title?: FM.MessageDescriptor;
+  text?: FM.MessageDescriptor;
+}
+
+export interface IDetails {
+  headerText: FM.MessageDescriptor;
+  exploreButtons: IExploreButton[];
+  subheaderText: FM.MessageDescriptor;
+  infoBoxes?: IInfoBox[];
+}
+
 export interface IOption {
   title: string | FM.MessageDescriptor;
   isPreview?: boolean;
@@ -17,4 +35,5 @@ export interface IOption {
   unselectable?: boolean;
   isValidTitle?: boolean;
   author?: string;
+  details?: IDetails;
 }

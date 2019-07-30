@@ -45,6 +45,52 @@ export const azureMessages = defineMessages({
     defaultMessage:
       "Deploy serverless web applications using an event-driven platform."
   },
+  azureFunctionsDetailsHeader: {
+    id: "azureFunctions.detailsHeader",
+    defaultMessage: "Run code serverlessly"
+  },
+  azureFunctionsOverviewButtonText: {
+    id: "azureFunctions.overviewButtonText",
+    defaultMessage: "Functions Overview"
+  },
+  azureFunctionsDocumentationButtonText: {
+    id: "azureFunctions.documentationButtonText",
+    defaultMessage: "Documentation"
+  },
+  azureFunctionsPricingButtonText: {
+    id: "azureFunctions.pricingButtonText",
+    defaultMessage: "Pricing"
+  },
+  azureFunctionsDetailsSubheader: {
+    id: "azureFunctions.detailsSubheader",
+    defaultMessage: "The Power of Azure Functions"
+  },
+  azureFunctionsServerlessBoxTitle: {
+    id: "azureFunctions.serverlessBoxTitle",
+    defaultMessage: "Serverless"
+  },
+  azureFunctionsServerlessBoxText: {
+    id: "azureFunctions.serverlessBoxText",
+    defaultMessage:
+      "Azure Functions runs your code without a server, keeping the focus on development."
+  },
+  azureFunctionsEasyBoxTitle: {
+    id: "azureFunctions.easyBoxTitle",
+    defaultMessage: "Easy to Use"
+  },
+  azureFunctionsEasyBoxText: {
+    id: "azureFunctions.easyBoxText",
+    defaultMessage:
+      "Integrate your web application with Azure Functions to easily respond to events."
+  },
+  azureFunctionsScalableBoxTitle: {
+    id: "azureFunctions.scalableBoxTitle",
+    defaultMessage: "Scalable"
+  },
+  azureFunctionsScalableBoxText: {
+    id: "azureFunctions.scalableBoxText",
+    defaultMessage: "Scale automatically based on application performance."
+  },
   cosmosTitle: {
     id: "cosmosDb.title",
     defaultMessage: "Cosmos DB"
@@ -58,6 +104,52 @@ export const azureMessages = defineMessages({
     id: "cosmosDb.cardBody",
     defaultMessage:
       "Connect your web app to a distributed database service to access and query data using SQL or MongoDB API."
+  },
+  cosmosDetailsHeader: {
+    id: "cosmosDb.detailsHeader",
+    defaultMessage: "Reliable and fast database service"
+  },
+  cosmosOverviewButtonText: {
+    id: "cosmosDb.overviewButtonText",
+    defaultMessage: "Cosmos DB Overview"
+  },
+  cosmosDocumentationButtonText: {
+    id: "cosmosDb.documentationButtonText",
+    defaultMessage: "Documentation"
+  },
+  cosmosPricingButtonText: {
+    id: "cosmosDb.pricingButtonText",
+    defaultMessage: "Pricing"
+  },
+  cosmosDetailsSubheader: {
+    id: "cosmosDb.detailsSubheader",
+    defaultMessage: "The Power of Azure Cosmos DB"
+  },
+  cosmosServerlessBoxTitle: {
+    id: "cosmosDb.serverlessBoxTitle",
+    defaultMessage: "Serverless"
+  },
+  cosmosServerlessBoxText: {
+    id: "cosmosDb.serverlessBoxText",
+    defaultMessage:
+      "With CosmosDB, you don’t have to install any software and no servers to manage or maintain."
+  },
+  cosmosEasyBoxTitle: {
+    id: "cosmosDb.easyBoxTitle",
+    defaultMessage: "Easy to Use"
+  },
+  cosmosEasyBoxText: {
+    id: "cosmosDb.easyBoxText",
+    defaultMessage: "Access and query using MongoDB or SQL API."
+  },
+  cosmosScalableBoxTitle: {
+    id: "cosmosDb.scalableBoxTitle",
+    defaultMessage: "Scalable"
+  },
+  cosmosScalableBoxText: {
+    id: "cosmosDb.scalableBoxText",
+    defaultMessage:
+      "Your applications scale automatically based on performance and to adjust for capacity."
   },
   azureModalChooseExisting: {
     id: "azureModal.chooseExisting",
@@ -135,6 +227,51 @@ export const azureMessages = defineMessages({
     defaultMessage:
       "Quickly build, deploy, and scale your web apps with confidence."
   },
+  appServiceDetailsHeader: {
+    id: "appService.detailsHeader",
+    defaultMessage: "Quickly publish web apps"
+  },
+  appServiceOverviewButtonText: {
+    id: "appService.overviewButtonText",
+    defaultMessage: "App Service Overview >"
+  },
+  appServiceDocumentationButtonText: {
+    id: "appService.documentationButtonText",
+    defaultMessage: "Documentation >"
+  },
+  appServicePricingButtonText: {
+    id: "appService.pricingButtonText",
+    defaultMessage: "Pricing >"
+  },
+  appServiceDetailsSubheader: {
+    id: "appService.detailsSubheader",
+    defaultMessage: "The Power of App Service"
+  },
+  appServiceVersatileBoxTitle: {
+    id: "appService.versatileBoxTitle",
+    defaultMessage: "Versatile"
+  },
+  appServiceVersatileBoxText: {
+    id: "appService.versatileBoxText",
+    defaultMessage:
+      "Get your web apps deployed quickly using Node.js and Python."
+  },
+  appServiceEasyBoxTitle: {
+    id: "appService.easyBoxTitle",
+    defaultMessage: "Easy to Use"
+  },
+  appServiceEasyBoxText: {
+    id: "appService.easyBoxText",
+    defaultMessage: "Publish directly from Microsoft Visual Studio Code."
+  },
+  appServiceScalableBoxTitle: {
+    id: "appService.scalableBoxTitle",
+    defaultMessage: "Scalable"
+  },
+  appServiceScalableBoxText: {
+    id: "appService.scalableBoxText",
+    defaultMessage: "Scale automatically based on application performance."
+  },
   runtimeStackLabel: {
     id: "azureFunctionsModal.runtimeStackLabel",
     defaultMessage: "Runtime Stack"
@@ -159,7 +296,35 @@ const azureServiceOptions: IOption[] = [
     title: azureMessages.appServiceTitle,
     internalName: WIZARD_CONTENT_INTERNAL_NAMES.APP_SERVICE,
     longDescription: azureMessages.appServiceLongDescription,
-    body: azureMessages.appServiceCardBody
+    body: azureMessages.appServiceCardBody,
+    details: {
+      headerText: azureMessages.appServiceDetailsHeader,
+      exploreButtons: [
+        { text: azureMessages.appServiceOverviewButtonText, linkUrl: "" },
+        { text: azureMessages.appServiceDocumentationButtonText, linkUrl: "" },
+        { text: azureMessages.appServicePricingButtonText, linkUrl: "" }
+      ],
+      subheaderText: azureMessages.appServiceDetailsSubheader,
+      infoBoxes: [
+        {
+          svgUrl: getSvgUrl(WIZARD_CONTENT_INTERNAL_NAMES.VERSATILE),
+          title: azureMessages.appServiceVersatileBoxTitle,
+          text: azureMessages.appServiceVersatileBoxText
+        },
+        {
+          svgUrl: getSvgUrl(
+            WIZARD_CONTENT_INTERNAL_NAMES.APP_SERVICE_EASY_TO_USE
+          ),
+          title: azureMessages.appServiceEasyBoxTitle,
+          text: azureMessages.appServiceEasyBoxText
+        },
+        {
+          svgUrl: getSvgUrl(WIZARD_CONTENT_INTERNAL_NAMES.SCALABLE),
+          title: azureMessages.appServiceScalableBoxTitle,
+          text: azureMessages.appServiceScalableBoxText
+        }
+      ]
+    }
   },
   {
     author: "Microsoft",
@@ -168,7 +333,38 @@ const azureServiceOptions: IOption[] = [
     title: azureMessages.azureFunctionsTitle,
     internalName: WIZARD_CONTENT_INTERNAL_NAMES.AZURE_FUNCTIONS,
     longDescription: azureMessages.azureFunctionsLongDescription,
-    body: azureMessages.azureFunctionsCardBody
+    body: azureMessages.azureFunctionsCardBody,
+    details: {
+      headerText: azureMessages.azureFunctionsDetailsHeader,
+      exploreButtons: [
+        { text: azureMessages.azureFunctionsOverviewButtonText, linkUrl: "" },
+        {
+          text: azureMessages.azureFunctionsDocumentationButtonText,
+          linkUrl: ""
+        },
+        { text: azureMessages.azureFunctionsPricingButtonText, linkUrl: "" }
+      ],
+      subheaderText: azureMessages.azureFunctionsDetailsSubheader,
+      infoBoxes: [
+        {
+          svgUrl: getSvgUrl(WIZARD_CONTENT_INTERNAL_NAMES.SERVERLESS),
+          title: azureMessages.azureFunctionsServerlessBoxTitle,
+          text: azureMessages.azureFunctionsServerlessBoxText
+        },
+        {
+          svgUrl: getSvgUrl(
+            WIZARD_CONTENT_INTERNAL_NAMES.FUNCTIONS_EASY_TO_USE
+          ),
+          title: azureMessages.azureFunctionsEasyBoxTitle,
+          text: azureMessages.azureFunctionsEasyBoxText
+        },
+        {
+          svgUrl: getSvgUrl(WIZARD_CONTENT_INTERNAL_NAMES.SCALABLE),
+          title: azureMessages.azureFunctionsScalableBoxTitle,
+          text: azureMessages.azureFunctionsScalableBoxText
+        }
+      ]
+    }
   },
   {
     author: "Microsoft",
@@ -177,7 +373,33 @@ const azureServiceOptions: IOption[] = [
     title: azureMessages.cosmosTitle,
     internalName: WIZARD_CONTENT_INTERNAL_NAMES.COSMOS_DB,
     longDescription: azureMessages.cosmosLongDescription,
-    body: azureMessages.cosmosCardBody
+    body: azureMessages.cosmosCardBody,
+    details: {
+      headerText: azureMessages.cosmosDetailsHeader,
+      exploreButtons: [
+        { text: azureMessages.cosmosOverviewButtonText, linkUrl: "" },
+        { text: azureMessages.cosmosDocumentationButtonText, linkUrl: "" },
+        { text: azureMessages.cosmosPricingButtonText, linkUrl: "" }
+      ],
+      subheaderText: azureMessages.cosmosDetailsSubheader,
+      infoBoxes: [
+        {
+          svgUrl: getSvgUrl(WIZARD_CONTENT_INTERNAL_NAMES.SERVERLESS),
+          title: azureMessages.cosmosServerlessBoxTitle,
+          text: azureMessages.cosmosServerlessBoxText
+        },
+        {
+          svgUrl: getSvgUrl(WIZARD_CONTENT_INTERNAL_NAMES.COSMOS_EASY_TO_USE),
+          title: azureMessages.cosmosEasyBoxTitle,
+          text: azureMessages.cosmosEasyBoxText
+        },
+        {
+          svgUrl: getSvgUrl(WIZARD_CONTENT_INTERNAL_NAMES.SCALABLE),
+          title: azureMessages.cosmosScalableBoxTitle,
+          text: azureMessages.cosmosScalableBoxText
+        }
+      ]
+    }
   }
 ];
 

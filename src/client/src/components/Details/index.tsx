@@ -12,6 +12,7 @@ import { KEY_EVENTS } from "../../utils/constants";
 
 import { IOption } from "../../types/option";
 import { ILicenseObject, License } from "../../types/license";
+import { servicesEnum } from "../../mockData/azureServiceOptions";
 
 import {
   injectIntl,
@@ -20,6 +21,7 @@ import {
   FormattedMessage
 } from "react-intl";
 import keyUpHandler from "../../utils/keyUpHandler";
+import AzureServiceDetails from "../AzureServiceDetails";
 
 interface IProps {
   detailInfo: IOption;
@@ -86,112 +88,122 @@ const Details = ({
     }
   };
   return (
-    <React.Fragment>
-      <div className={styles.container}>
-        <div className={styles.backContainer}>
-          <div
-            role="button"
-            tabIndex={0}
-            onClick={handleBackClick}
-            onKeyDown={keyDownHandler}
-            className={styles.innerBackContainer}
-          >
-            {backArrow && <BackArrow className={styles.backIcon} />}
-            <div className={styles.details}>
-              <FormattedMessage id="details.back" defaultMessage="Back" />
-            </div>
-          </div>
-        </div>
-        <div className={styles.headerContainer}>
-          {detailInfo.internalName &&
-            (getSvg(detailInfo.internalName, styles.icon) || (
-              <img className={styles.icon} src={detailInfo.svgUrl} alt="" />
-            ))}
-          <div className={styles.detailsTitle}>
-            {renderFormattedData(detailInfo.title, false)}
-          </div>
-        </div>
-        <div className={styles.detailsContainer}>
-          <div className={styles.spacer} />
-          <div>
-            <div className={styles.detailsDescription}>
-              {renderFormattedData(detailInfo.longDescription, true)}
-            </div>
-            <div>
-              {detailInfo.author && (
-                <div className={classnames(styles.metaData, grid.row)}>
-                  <div className={classnames(styles.category, styles.colWidth)}>
-                    <FormattedMessage
-                      id="details.author"
-                      defaultMessage="Author:"
-                    />
-                  </div>
-                  <div className={grid.col8}>
-                    {<ReactMarkdown source={detailInfo.author} /> ||
-                      intl!.formatMessage(messages.none)}
-                  </div>
-                </div>
-              )}
-            </div>
-            <div>
-              {detailInfo.licenses && (
-                <div className={classnames(styles.metaData, grid.row)}>
-                  <div
-                    className={classnames(
-                      styles.licenseCategory,
-                      styles.colWidth
-                    )}
-                  >
-                    <FormattedMessage
-                      id="details.licenses"
-                      defaultMessage="Licenses:"
-                    />
-                  </div>
-                  <div className={classnames(grid.col8, styles.licenses)}>
-                    {Array.isArray(detailInfo.licenses)
-                      ? detailInfo.licenses.map(
-                          (license: License, idx: number) => {
-                            const licenseObject = license as ILicenseObject;
-                            return (
-                              <p key={license + idx.toString()}>
-                                <a
-                                  className={styles.link}
-                                  href={licenseObject.url}
-                                  onKeyUp={keyUpHandler}
-                                >
-                                  {licenseObject.text}
-                                </a>
-                              </p>
-                            );
-                          }
-                        )
-                      : (
-                          <ReactMarkdown
-                            source={detailInfo.licenses}
-                            renderers={{ link: LinkRenderer }}
-                          />
-                        ) || intl!.formatMessage(messages.none)}
-                  </div>
-                </div>
-              )}
-              {detailInfo.version && (
-                <div className={classnames(styles.metaData, grid.row)}>
-                  <div className={classnames(styles.category, styles.colWidth)}>
-                    <FormattedMessage
-                      id="details.version"
-                      defaultMessage="Version:"
-                    />
-                  </div>
-                  <div className={grid.col8}>
-                    <ReactMarkdown source={detailInfo.version} />
-                  </div>
-                </div>
-              )}
-            </div>
+    <div className={styles.container}>
+      <div className={styles.backContainer}>
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={handleBackClick}
+          onKeyDown={keyDownHandler}
+          className={styles.innerBackContainer}
+        >
+          {backArrow && <BackArrow className={styles.backIcon} />}
+          <div className={styles.details}>
+            <FormattedMessage id="details.back" defaultMessage="Back" />
           </div>
         </div>
       </div>
-    </React.Fragment>
+
+      {detailInfo.type &&
+      Object.values(servicesEnum).includes(detailInfo.type) ? (
+        <AzureServiceDetails option={detailInfo} />
+      ) : (
+        <>
+          <div className={styles.headerContainer}>
+            {detailInfo.internalName &&
+              (getSvg(detailInfo.internalName, styles.icon) || (
+                <img className={styles.icon} src={detailInfo.svgUrl} alt="" />
+              ))}
+            <div className={styles.detailsTitle}>
+              {renderFormattedData(detailInfo.title, false)}
+            </div>
+          </div>
+          <div className={styles.detailsContainer}>
+            <div className={styles.spacer} />
+            <div>
+              <div className={styles.detailsDescription}>
+                {renderFormattedData(detailInfo.longDescription, true)}
+              </div>
+              <div>
+                {detailInfo.author && (
+                  <div className={classnames(styles.metaData, grid.row)}>
+                    <div
+                      className={classnames(styles.category, styles.colWidth)}
+                    >
+                      <FormattedMessage
+                        id="details.author"
+                        defaultMessage="Author:"
+                      />
+                    </div>
+                    <div className={grid.col8}>
+                      {<ReactMarkdown source={detailInfo.author} /> ||
+                        intl!.formatMessage(messages.none)}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div>
+                {detailInfo.licenses && (
+                  <div className={classnames(styles.metaData, grid.row)}>
+                    <div
+                      className={classnames(
+                        styles.licenseCategory,
+                        styles.colWidth
+                      )}
+                    >
+                      <FormattedMessage
+                        id="details.licenses"
+                        defaultMessage="Licenses:"
+                      />
+                    </div>
+                    <div className={classnames(grid.col8, styles.licenses)}>
+                      {Array.isArray(detailInfo.licenses)
+                        ? detailInfo.licenses.map(
+                            (license: License, idx: number) => {
+                              const licenseObject = license as ILicenseObject;
+                              return (
+                                <p key={license + idx.toString()}>
+                                  <a
+                                    className={styles.link}
+                                    href={licenseObject.url}
+                                    onKeyUp={keyUpHandler}
+                                  >
+                                    {licenseObject.text}
+                                  </a>
+                                </p>
+                              );
+                            }
+                          )
+                        : (
+                            <ReactMarkdown
+                              source={detailInfo.licenses}
+                              renderers={{ link: LinkRenderer }}
+                            />
+                          ) || intl!.formatMessage(messages.none)}
+                    </div>
+                  </div>
+                )}
+                {detailInfo.version && (
+                  <div className={classnames(styles.metaData, grid.row)}>
+                    <div
+                      className={classnames(styles.category, styles.colWidth)}
+                    >
+                      <FormattedMessage
+                        id="details.version"
+                        defaultMessage="Version:"
+                      />
+                    </div>
+                    <div className={grid.col8}>
+                      <ReactMarkdown source={detailInfo.version} />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 

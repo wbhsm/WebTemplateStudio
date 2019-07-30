@@ -98,7 +98,13 @@ const WIZARD_CONTENT_INTERNAL_NAMES = {
   VUE_BLANK_PAGE: "wts.Page.Vue.Blank",
   VUE_CONTENT_GRID: "wts.Page.Vue.Grid",
   VUE_MASTER_DETAIL: "wts.Page.Vue.MasterDetail",
-  VUE_LIST: "wts.Page.Vue.List"
+  VUE_LIST: "wts.Page.Vue.List",
+  VERSATILE: "Versatile",
+  APP_SERVICE_EASY_TO_USE: "AppServiceEasyToUse",
+  SCALABLE: "Scalable",
+  SERVERLESS: "Serverless",
+  FUNCTIONS_EASY_TO_USE: "FunctionsEasyToUse",
+  COSMOS_EASY_TO_USE: "CosmosEasyToUse"
 };
 
 const EXTENSION_MODULES = {
