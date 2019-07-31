@@ -35,6 +35,7 @@ import {
   ResourceGroupDeploy,
   ResourceGroupSelection
 } from "./azure-resource-group/resourceGroupModule";
+import { AppRegistration } from "./azure-app-registration/appRegistration";
 
 export class AzureServices extends WizardServant {
   clientCommandMap: Map<
@@ -265,6 +266,9 @@ export class AzureServices extends WizardServant {
       } else {
         throw new SubscriptionError(CONSTANTS.ERRORS.SUBSCRIPTION_NOT_FOUND);
       }
+      let ap = new AppRegistration(this.usersCosmosDBSubscriptionItemCache);
+      let me = await ap.client.api("/me").get();
+      console.log(me);
     }
   }
 

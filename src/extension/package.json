@@ -97,6 +97,7 @@
   ],
   "dependencies": {
     "@aspnet/signalr": "^1.1.2",
+    "@microsoft/microsoft-graph-client": "^1.7.0",
     "@types/app-root-path": "^1.2.4",
     "@types/archiver": "^2.1.2",
     "@types/fs-extra": "^5.0.5",
@@ -114,6 +115,7 @@
     "log4js": "^4.1.0",
     "ms-rest": "^2.5.0",
     "ms-rest-azure": "^2.6.0",
+    "msal": "^1.1.1",
     "node-fetch": "^2.3.0",
     "opn": "^5.5.0",
     "portfinder": "^1.0.20",
