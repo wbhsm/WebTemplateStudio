@@ -8,7 +8,7 @@ import { CoreTemplateStudio } from "./coreTemplateStudio";
 import { Controller } from "./controller";
 import { ResourceGroupSelection } from "./azure/azure-resource-group/resourceGroupModule";
 import { Settings } from "./azure/utils/settings";
-
+import { join } from "path";
 export class GenerationExperience extends WizardServant {
   private static reactPanelContext: ReactPanel;
   private static Telemetry: TelemetryAI;
@@ -304,11 +304,11 @@ export class GenerationExperience extends WizardServant {
   private static async openProjectVSCode(
     message: any
   ): Promise<IPayloadResponse> {
-    vscode.commands.executeCommand(
-      CONSTANTS.VSCODE_COMMAND.OPEN_FOLDER,
-      vscode.Uri.file(message.payload.outputPath),
-      true
-    );
+    const path: string = message.payload.outputPath;
+    const dirUri = vscode.Uri.file(path);
+    await vscode.workspace.updateWorkspaceFolders(0, 0, { uri: dirUri });
+    const readmeUri = vscode.Uri.file(join(path, "README.md"));
+    await vscode.commands.executeCommand("vscode.open", readmeUri);
     return { payload: true };
   }
 
